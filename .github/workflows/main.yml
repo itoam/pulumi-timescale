@@ -176,10 +176,8 @@ jobs:
       fail-fast: false
       matrix:
         language:
-        - dotnet
         - go
         - nodejs
-        - python
 name: main
 on:
   workflow_dispatch: {}

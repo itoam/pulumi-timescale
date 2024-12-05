@@ -47,10 +47,10 @@ func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P: pfbridge.ShimProvider(timescale.NewProvider(version.Version)()),
 
-		Name:    "timescale",
-		Version: version.Version,
+		Name:        "timescale",
+		Version:     version.Version,
 		DisplayName: "Timescale",
-		Publisher: "ITOAM",
+		Publisher:   "ITOAM",
 		// You may host a logo on a domain you control or add an PNG logo (100x100) for your package
 		// in your repository and use the raw content URL for that file as your logo URL.
 		LogoURL: "https://console.cloud.timescale.com/static/media/timescale-logo-mini.06f9d72ede30459fa1933fc0d3164144.svg",
@@ -85,6 +85,7 @@ func Provider() tfbridge.ProviderInfo {
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// RespectSchemaVersion ensures the SDK is generated linking to the correct version of the provider.
 			RespectSchemaVersion: true,
+			PackageName:          "@itoam/pulumi-timescale",
 		},
 		Python: &tfbridge.PythonInfo{
 			// RespectSchemaVersion ensures the SDK is generated linking to the correct version of the provider.

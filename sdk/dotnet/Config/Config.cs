@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace Pulumi.Xyz
+namespace Pulumi.Timescale
 {
     public static class Config
     {
@@ -30,16 +30,46 @@ namespace Pulumi.Xyz
             }
         }
 
-        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("xyz");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("timescale");
 
-        private static readonly __Value<Pulumi.Xyz.Region.Region?> _region = new __Value<Pulumi.Xyz.Region.Region?>(() => __config.GetObject<Pulumi.Xyz.Region.Region>("region"));
+        private static readonly __Value<string?> _accessKey = new __Value<string?>(() => __config.Get("accessKey"));
         /// <summary>
-        /// A region which should be used.
+        /// Access Key
         /// </summary>
-        public static Pulumi.Xyz.Region.Region? Region
+        public static string? AccessKey
         {
-            get => _region.Get();
-            set => _region.Set(value);
+            get => _accessKey.Get();
+            set => _accessKey.Set(value);
+        }
+
+        private static readonly __Value<string?> _accessToken = new __Value<string?>(() => __config.Get("accessToken"));
+        /// <summary>
+        /// Access Token
+        /// </summary>
+        public static string? AccessToken
+        {
+            get => _accessToken.Get();
+            set => _accessToken.Set(value);
+        }
+
+        private static readonly __Value<string?> _projectId = new __Value<string?>(() => __config.Get("projectId"));
+        /// <summary>
+        /// Project ID
+        /// </summary>
+        public static string? ProjectId
+        {
+            get => _projectId.Get();
+            set => _projectId.Set(value);
+        }
+
+        private static readonly __Value<string?> _secretKey = new __Value<string?>(() => __config.Get("secretKey"));
+        /// <summary>
+        /// Secret Key
+        /// </summary>
+        public static string? SecretKey
+        {
+            get => _secretKey.Get();
+            set => _secretKey.Set(value);
         }
 
     }

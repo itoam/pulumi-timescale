@@ -86,7 +86,7 @@ jobs:
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
-        tools: pulumictl, pulumicli, dotnet, go, nodejs, python
+        tools: pulumictl, pulumicli, go, nodejs
     - name: Prepare local workspace
       run: make prepare_local_workspace
     - name: Download bin
@@ -117,10 +117,8 @@ jobs:
       fail-fast: false
       matrix:
         language:
-        - dotnet
         - go
         - nodejs
-        - python
 
 name: prerelease
 on:

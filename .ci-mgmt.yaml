@@ -32,14 +32,14 @@ providerDefaultBranch: main
 
 # Explicit list of languages to support for SDKs. Java is currently excluded because it doesn't yet work well for non-internal providers.
 languages:
-  - dotnet
+  # - dotnet
   - go
   - nodejs
-  - python
+  # - python
 
 # Disable Java publishing and pushing the provider binary to the CDN as these only work internally within Pulumi.
 publish:
-  sdk: "all,!java"
+  sdk: "nodejs"
   cdn: false
 
 # Enables automatic generation of basic docs pages for the registry.
@@ -49,3 +49,7 @@ publish:
 publishRegistry: false
 # For additional options, please refer to the defaults set in ci-mgmt:
 # https://github.com/pulumi/ci-mgmt/blob/master/provider-ci/internal/pkg/templates/defaults.config.yaml
+
+license:
+  ignore:
+    - github.com/timescale/terraform-provider-timescale/shim

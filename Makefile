@@ -46,9 +46,9 @@ only_build: build
 prepare_local_workspace: install_plugins upstream
 # Creates all generated files which need to be committed
 generate: generate_sdks schema
-generate_sdks: generate_dotnet generate_go generate_nodejs generate_python
-build_sdks: build_dotnet build_go build_nodejs build_python
-install_sdks: install_dotnet_sdk install_go_sdk install_nodejs_sdk install_python_sdk
+generate_sdks: generate_go generate_nodejs
+build_sdks: build_go build_nodejs
+install_sdks: install_go_sdk install_nodejs_sdk
 .PHONY: development only_build build generate generate_sdks build_sdks install_sdks
 
 help:
@@ -84,7 +84,7 @@ help:
 	@echo "  build_[language]       Build the SDK to check correctness"
 	@echo "  install_[language]_sdk Install the SDK ready for testing"
 	@echo ""
-	@echo "  [language] = dotnet go nodejs python"
+	@echo "  [language] = go nodejs"
 	@echo ""
 .PHONY: help
 
@@ -144,6 +144,7 @@ build_nodejs: .make/build_nodejs
 	cd sdk/nodejs/ && \
 		yarn install && \
 		yarn run tsc && \
+		jq '. + {publishConfig: {access: "public"}}' package.json > tmp.json && mv tmp.json package.json && \
 		cp ../../README.md ../../LICENSE* package.json yarn.lock ./bin/
 	@touch $@
 .PHONY: generate_nodejs build_nodejs

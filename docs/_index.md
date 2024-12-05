@@ -10,7 +10,7 @@ The Timescale Provider lets you manage [Timescale Cloud](https://www.timescale.c
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
-import * as timescale from "@pulumi/timescale";
+import * as timescale from "@itoam/pulumi-timescale";
 
 const provider = new timescale.Provider("provider", {
   accessKey: "XXXX",

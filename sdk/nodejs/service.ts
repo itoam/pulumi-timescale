@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as timescale from "@pulumi/timescale";
+ * import * as timescale from "@itoam/pulumi-timescale";
  *
  * const test = new timescale.Service("test", {});
  * // Read replica

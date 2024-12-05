@@ -28,6 +28,7 @@
       "respectSchemaVersion": true
     },
     "nodejs": {
+      "packageName": "@itoam/pulumi-timescale",
       "packageDescription": "A Pulumi package for creating and managing timescale cloud resources.",
       "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/timescale/terraform-provider-timescale)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-timescale` repo](https://github.com/itoam/pulumi-timescale/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-timescale` repo](https://github.com/timescale/terraform-provider-timescale/issues).",
       "compatibility": "tfbridge20",

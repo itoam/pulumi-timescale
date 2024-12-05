@@ -11,9 +11,9 @@ This package is available for several languages/platforms:
 To use from JavaScript or TypeScript in Node.js, install your preferred package manager:
 
 ```bash
-pnpm add @pulumi/timescale
-npm install @pulumi/timescale
-yarn add @pulumi/timescale
+pnpm add @itoam/pulumi-timescale
+npm install @itoam/pulumi-timescale
+yarn add @itoam/pulumi-timescale
 ```
 
 ### Python, .NET, and Go

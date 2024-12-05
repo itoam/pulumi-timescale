@@ -176,10 +176,8 @@ jobs:
       fail-fast: false
       matrix:
         language:
-        - dotnet
         - go
         - nodejs
-        - python
         testTarget: [local]
   license_check:
     name: License Check
