@@ -1,62 +1,62 @@
 {
-    "auto-aliasing": {
-        "resources": {
-            "timescale_peering_connection": {
-                "current": "timescale:index/peeringConnection:PeeringConnection",
-                "majorVersion": 1
-            },
-            "timescale_service": {
-                "current": "timescale:index/service:Service",
-                "majorVersion": 1
-            },
-            "timescale_vpcs": {
-                "current": "timescale:index/vpcs:Vpcs",
-                "majorVersion": 1
-            }
-        },
-        "datasources": {
-            "timescale_products": {
-                "current": "timescale:index/getProducts:getProducts",
-                "majorVersion": 1,
-                "fields": {
-                    "products": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "plans": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "timescale_service": {
-                "current": "timescale:index/getService:getService",
-                "majorVersion": 1,
-                "fields": {
-                    "resources": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "timescale_vpcs": {
-                "current": "timescale:index/getVpcs:getVpcs",
-                "majorVersion": 1,
-                "fields": {
-                    "vpcs": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "peering_connections": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+  "auto-aliasing": {
+    "resources": {
+      "timescale_peering_connection": {
+        "current": "timescale:index/peeringConnection:PeeringConnection",
+        "majorVersion": 1
+      },
+      "timescale_service": {
+        "current": "timescale:index/service:Service",
+        "majorVersion": 1
+      },
+      "timescale_vpcs": {
+        "current": "timescale:index/vpcs:Vpcs",
+        "majorVersion": 1
+      }
     },
-    "auto-settings": {}
+    "datasources": {
+      "timescale_products": {
+        "current": "timescale:index/getProducts:getProducts",
+        "majorVersion": 1,
+        "fields": {
+          "products": {
+            "maxItemsOne": false,
+            "elem": {
+              "fields": {
+                "plans": {
+                  "maxItemsOne": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "timescale_service": {
+        "current": "timescale:index/getService:getService",
+        "majorVersion": 1,
+        "fields": {
+          "resources": {
+            "maxItemsOne": false
+          }
+        }
+      },
+      "timescale_vpcs": {
+        "current": "timescale:index/getVpcs:getVpcs",
+        "majorVersion": 1,
+        "fields": {
+          "vpcs": {
+            "maxItemsOne": false,
+            "elem": {
+              "fields": {
+                "peering_connections": {
+                  "maxItemsOne": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "auto-settings": {}
 }

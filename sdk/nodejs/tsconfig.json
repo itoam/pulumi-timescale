@@ -15,16 +15,17 @@
     "files": [
         "config/index.ts",
         "config/vars.ts",
-        "getDataSource.ts",
+        "getProducts.ts",
+        "getService.ts",
+        "getVpcs.ts",
         "index.ts",
+        "peeringConnection.ts",
         "provider.ts",
-        "region/index.ts",
-        "resource.ts",
-        "types/enums/index.ts",
-        "types/enums/region/index.ts",
+        "service.ts",
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",
-        "utilities.ts"
+        "utilities.ts",
+        "vpcs.ts"
     ]
 }

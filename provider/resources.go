@@ -45,91 +45,24 @@ var metadata []byte
 func Provider() tfbridge.ProviderInfo {
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		// Instantiate the Terraform provider
-		//
-		// The [pulumi-terraform-bridge](https://github.com/pulumi/pulumi-terraform-bridge) supports 3
-		// types of Terraform providers:
-		//
-		// 1. Providers written with the terraform-plugin-sdk/v1:
-		//
-		//    If the provider you are bridging is written with the terraform-plugin-sdk/v1, then you
-		//    will need to adapt the boilerplate:
-		//
-		//    - Change the import "shimv2" to "shimv1" and change the associated import to
-		//      "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1".
-		//
-		//    You can then proceed as normal.
-		//
-		// 2. Providers written with terraform-plugin-sdk/v2:
-		//
-		//    This boilerplate is already geared towards providers written with the
-		//    terraform-plugin-sdk/v2, since it is the most common provider framework used. No
-		//    adaptions are needed.
-		//
-		// 3. Providers written with terraform-plugin-framework:
-		//
-		//    If the provider you are bridging is written with the terraform-plugin-framework, then
-		//    you will need to adapt the boilerplate:
-		//
-		//    - Remove the `shimv2` import and add:
-		//
-		//      	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
-		//
-		//    - Replace `shimv2.NewProvider` with `pfbridge.ShimProvider`.
-		//
-		//    - In provider/cmd/pulumi-tfgen-timescale/main.go, replace the
-		//      "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen" import with
-		//      "github.com/pulumi/pulumi-terraform-bridge/pf/tfgen". Remove the `version.Version`
-		//      argument to `tfgen.Main`.
-		//
-		//    - In provider/cmd/pulumi-resource-timescale/main.go, replace the
-		//      "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge" import with
-		//      "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge". Replace the arguments to the
-		//      `tfbridge.Main` so it looks like this:
-		//
-		//      	tfbridge.Main(context.Background(), "timescale", timescale.Provider(),
-		//			tfbridge.ProviderMetadata{PulumiSchema: pulumiSchema})
-		//
-		//   Detailed instructions can be found at
-		//   https://github.com/pulumi/pulumi-terraform-bridge/blob/master/pf/README.md#how-to-upgrade-a-bridged-provider-to-plugin-framework.
-		//   After that, you can proceed as normal.
-		//
-		// This is where you give the bridge a handle to the upstream terraform provider. SDKv2
-		// convention is to have a function at "github.com/iwahbe/terraform-provider-timescale/provider".New
-		// which takes a version and produces a factory function. The provider you are bridging may
-		// not do that. You will need to find the function (generally called in upstream's main.go)
-		// that produces a:
-		//
-		// - *"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema".Provider (for SDKv2)
-		// - *"github.com/hashicorp/terraform-plugin-sdk/v1/helper/schema".Provider (for SDKv1)
-		// - "github.com/hashicorp/terraform-plugin-framework/provider".Provider (for plugin-framework)
-		//
-		//nolint:lll
 		P: pfbridge.ShimProvider(timescale.NewProvider(version.Version)()),
 
 		Name:    "timescale",
 		Version: version.Version,
-		// DisplayName is a way to be able to change the casing of the provider name when being
-		// displayed on the Pulumi registry
 		DisplayName: "Timescale",
-		// Change this to your personal name (or a company name) that you would like to be shown in
-		// the Pulumi Registry if this package is published there.
 		Publisher: "ITOAM",
-		// LogoURL is optional but useful to help identify your package in the Pulumi Registry
-		// if this package is published there.
-		//
 		// You may host a logo on a domain you control or add an PNG logo (100x100) for your package
 		// in your repository and use the raw content URL for that file as your logo URL.
-		LogoURL: "",
+		LogoURL: "https://console.cloud.timescale.com/static/media/timescale-logo-mini.06f9d72ede30459fa1933fc0d3164144.svg",
 		// PluginDownloadURL is an optional URL used to download the Provider
 		// for use in Pulumi programs
 		// e.g. https://github.com/org/pulumi-provider-name/releases/download/v${VERSION}/
-		PluginDownloadURL: "",
+		PluginDownloadURL: "https://github.com/itoam/pulumi-timescale/releases/download/v${VERSION}",
 		Description:       "A Pulumi package for creating and managing timescale cloud resources.",
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in
 		// https://www.pulumi.com/docs/guides/pulumi-packages/schema/#package.
-		Keywords:   []string{"timescale", "category/cloud"},
+		Keywords:   []string{"timescale", "category/cloud", "category/database"},
 		License:    "Apache-2.0",
 		Homepage:   "https://www.timescale.com/cloud",
 		Repository: "https://github.com/itoam/pulumi-timescale",
