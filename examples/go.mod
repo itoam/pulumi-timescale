@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/examples
+module github.com/itoam/pulumi-timescale/examples
 
 go 1.21
 
